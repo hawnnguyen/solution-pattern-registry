@@ -1,10 +1,11 @@
 # Spring Boot patterns-solution-service DEMO
 
-A DEMO Spring Boot application demonstrating GraphQL implementation with Spring MVC and JPA, showcasing a pattern management system with H2 database persistence by HawnSolo
+A DEMO Spring Boot application demonstrating Restful and GraphQL implementation with Spring MVC and JPA, showcasing a pattern management system with H2 database persistence by HawnSolo
 
 ## Features
 
 - GraphQL API using Spring MVC
+- RESTful API with Swagger/OpenAPI documentation
 - H2 Database persistence
 - Pattern and Tag management with proper entity relationships
 - Filtering patterns by quadrant and ring
@@ -20,6 +21,7 @@ A DEMO Spring Boot application demonstrating GraphQL implementation with Spring 
 - Spring Data JPA
 - H2 Database
 - GraphQL Spring Boot Starter
+- SpringDoc OpenAPI (Swagger)
 - Project Lombok
 - JUnit 5
 
@@ -46,7 +48,25 @@ The application follows a clean architecture with proper separation of concerns:
 2. Build the project: `mvn clean package`
 3. Run the application: `mvn spring-boot:run`
 4. Access GraphiQL: http://localhost:8080/graphiql
-5. Access H2 Console: http://localhost:8080/h2-console
+5. Access Swagger UI: http://localhost:8080/swagger-ui/index.html
+6. Access H2 Console: http://localhost:8080/h2-console
+
+## REST API Endpoints
+
+The application provides a comprehensive REST API for pattern management:
+
+### Pattern Operations
+- `GET /api/patterns` - Get all patterns
+- `GET /api/patterns/{id}` - Get pattern by ID
+- `GET /api/patterns/quadrant/{quadrant}` - Get patterns by quadrant
+- `GET /api/patterns/ring/{ring}` - Get patterns by ring
+- `GET /api/patterns/phase/{phase}` - Get patterns by phase
+- `GET /api/patterns/status/{status}` - Get patterns by status
+- `POST /api/patterns` - Create a new pattern
+- `PUT /api/patterns/{id}` - Update an existing pattern
+- `DELETE /api/patterns/{id}` - Delete a pattern
+
+For detailed API documentation and testing interface, visit the Swagger UI at http://localhost:8080/swagger-ui/index.html
 
 ## GraphQL Interface
 
@@ -204,6 +224,7 @@ mutation {
    - Added proper entity relationships
 4. Improved error handling and GraphQL configuration
 5. Added comprehensive GraphiQL support for testing
+6. Added REST API with Swagger/OpenAPI documentation
 
 ## Testing
 
