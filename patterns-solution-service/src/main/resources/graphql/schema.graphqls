@@ -1,0 +1,60 @@
+type Tag {
+    tagId: String!
+    tagName: String!
+    tagValue: String
+    className: String
+}
+
+type Pattern {
+    id: ID!
+    title: String!
+    name: String!
+    url: String
+    ring: String!
+    quadrant: String!
+    status: String
+    isNew: String
+    description: String
+    phase: String
+    pattern: [String]
+    useCase: [String]
+    tags: [Tag]
+}
+
+input TagInput {
+    tagId: String!
+    tagName: String!
+    tagValue: String
+    className: String
+}
+
+input PatternInput {
+    id: ID!
+    title: String!
+    name: String!
+    url: String
+    ring: String!
+    quadrant: String!
+    status: String
+    isNew: String
+    description: String
+    phase: String
+    pattern: [String]
+    useCase: [String]
+    tags: [TagInput]
+}
+
+type Query {
+    patterns: [Pattern]!
+    patternById(id: ID!): Pattern
+    patternsByQuadrant(quadrant: String!): [Pattern]!
+    patternsByRing(ring: String!): [Pattern]!
+    patternsByPhase(phase: String!): [Pattern]!
+    patternsByStatus(status: String!): [Pattern]!
+}
+
+type Mutation {
+    createPattern(pattern: PatternInput!): Pattern!
+    updatePattern(id: ID!, pattern: PatternInput!): Pattern
+    deletePattern(id: ID!): Boolean!
+}
