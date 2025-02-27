@@ -1,47 +1,35 @@
 type Tag {
-    tagId: String!
+    tagId: ID!
     tagName: String!
-    tagValue: String
+    tagValue: String!
     className: String
+    patternId: String
 }
 
 type Pattern {
     id: ID!
-    title: String!
     name: String!
-    url: String
-    ring: String!
+    description: String!
     quadrant: String!
-    status: String
-    isNew: String
-    description: String
-    phase: String
-    pattern: [String]
-    useCase: [String]
+    ring: String!
+    phase: String!
+    status: String!
     tags: [Tag]
 }
 
 input TagInput {
-    tagId: String!
     tagName: String!
-    tagValue: String
+    tagValue: String!
     className: String
 }
 
 input PatternInput {
-    id: ID!
-    title: String!
     name: String!
-    url: String
-    ring: String!
+    description: String!
     quadrant: String!
-    status: String
-    isNew: String
-    description: String
-    phase: String
-    pattern: [String]
-    useCase: [String]
-    tags: [TagInput]
+    ring: String!
+    phase: String!
+    status: String!
 }
 
 type Query {
@@ -55,6 +43,8 @@ type Query {
 
 type Mutation {
     createPattern(pattern: PatternInput!): Pattern!
-    updatePattern(id: ID!, pattern: PatternInput!): Pattern
+    updatePattern(id: ID!, pattern: PatternInput!): Pattern!
     deletePattern(id: ID!): Boolean!
+    createTag(patternId: ID!, tag: TagInput!): Tag!
+    deleteTag(tagId: ID!): Boolean!
 }

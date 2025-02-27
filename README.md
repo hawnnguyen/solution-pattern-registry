@@ -4,60 +4,111 @@ A comprehensive system for managing and showcasing enterprise solution patterns 
 
 ## Components
 
-### 1. [Pattern Solution Library Marketplace Registry Client](./patterns-solution-client/README.md)
+### 1. Frontend Client (patterns-solution-client)
 
-A modern React-based web application wrapped in Spring Boot that provides:
+A modern React-based web application that provides:
 - Interactive pattern browsing and visualization
-- User-friendly interface for pattern management
-- Seamless integration with the backend GraphQL API
-- Responsive design for optimal viewing across devices
+- User-friendly form for pattern creation and management
+- Comprehensive tag management system
+- Responsive Material-UI design
+- Type-safe development with TypeScript
 
 **Tech Stack:**
-- React
-- Apollo Client for GraphQL
-- Spring Boot wrapper
-- Modern UI/UX components
+- React 18.2.0
+- TypeScript
+- Material-UI (MUI)
+- Node.js v23.7.0
 
-### 2. [Spring Boot Patterns Solution Service](./patterns-solution-service/README.md)
+### 2. Backend Service (patterns-solution-service)
 
-A robust backend service that provides:
-- GraphQL API for pattern management
-- RESTful API with Swagger/OpenAPI documentation
-- Data persistence with H2 Database
-- Comprehensive pattern and tag management
-- Filtering and search capabilities
+A robust Spring Boot service that provides:
+- RESTful API for pattern management
+- Automatic UUID generation for patterns
+- JPA/Hibernate for data persistence
+- CORS configuration for secure cross-origin requests
+- Comprehensive entity model with relationships
 
 **Tech Stack:**
-- Java 21
-- Spring Boot 3.2.2
-- GraphQL
-- SpringDoc OpenAPI (Swagger)
-- JPA/H2 Database
+- Java
+- Spring Boot
+- JPA/Hibernate
+- H2 Database
 
-## System Architecture
+## Features
 
-The system follows a modern client-server architecture:
-- Frontend: React-based SPA served through Spring Boot
-- Backend: 
-  - GraphQL API for complex queries and mutations
-  - RESTful API with Swagger documentation for standard CRUD operations
-- Clean separation of concerns between UI and business logic
-- Scalable and maintainable codebase
+### Pattern Management
+- Create, read, update, and delete patterns
+- Automatic UUID generation for new patterns
+- Rich pattern metadata including:
+  * Title
+  * URL
+  * Ring (adopt, trial, assess, hold)
+  * Quadrant (tools, techniques, platforms, languages-frameworks)
+  * Status (active, deprecated, archived)
+  * Phase (planning, development, production)
+  * Associated patterns
+  * Use cases
+  * Tags
+
+### Tag System
+- Flexible tag management
+- Tag associations with patterns
+- Tag filtering and organization
 
 ## Getting Started
 
-1. First, set up the backend service by following the instructions in the [service README](./patterns-solution-service/README.md)
-2. Then, set up the client application by following the instructions in the [client README](./patterns-solution-client/README.md)
+### Backend Setup
+1. Navigate to the service directory:
+   ```bash
+   cd patterns-solution-service
+   ```
+2. Run the Spring Boot application:
+   ```bash
+   mvn spring-boot:run
+   ```
+   The service will start on http://localhost:8080
 
-### Available Endpoints
-- GraphiQL Interface: http://localhost:8080/graphiql
-- Swagger UI Documentation: http://localhost:8080/swagger-ui/index.html
-- H2 Database Console: http://localhost:8080/h2-console
+### Frontend Setup
+1. Navigate to the client directory:
+   ```bash
+   cd patterns-solution-client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   The client will be available at http://localhost:3000
+
+## API Endpoints
+
+The backend service exposes RESTful endpoints at `http://localhost:8080/api/v1`:
+- `GET /patterns`: Retrieve all patterns
+- `POST /patterns`: Create a new pattern
+- `GET /patterns/{id}`: Get a specific pattern
+- `PUT /patterns/{id}`: Update a pattern
+- `DELETE /patterns/{id}`: Delete a pattern
 
 ## Development
 
-For development purposes, you can run both components separately:
+For development, you can run both components separately:
 - Backend service on port 8080
 - Frontend client on port 3000
 
-Refer to individual component READMEs for detailed development instructions.
+### Development Notes
+- CORS is configured to allow cross-origin requests between frontend and backend
+- Frontend uses strict TypeScript checking
+- Backend implements automatic UUID generation for new patterns
+- Comprehensive form validation on both frontend and backend
+
+## Security Considerations
+- CORS configuration for secure cross-origin requests
+- Type validation on both frontend and backend
+- Secure API endpoint design
+- Input sanitization and validation
+
+## Contributing
+Please read our contributing guidelines before submitting pull requests.

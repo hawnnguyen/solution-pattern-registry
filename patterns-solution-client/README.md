@@ -1,71 +1,82 @@
-# Pattern Solution Library Marketplace Registry Client
+# Pattern Solution Registry Client
 
-This is a Spring Boot wrapped React application for the Pattern Solution Library Marketplace Registry.
+A modern React-based web application for managing and showcasing enterprise solution patterns.
 
 ## Prerequisites
 
-- Java 17 or higher
-- Maven 3.6 or higher
-- Node.js 18.x (will be installed by Maven)
-- NPM 9.x (will be installed by Maven)
+- Node.js v23.7.0 or higher
+- npm (comes with Node.js)
 
-## Building the Application
+## Installation
 
-The application uses Maven to build both the Spring Boot backend and the React frontend. To build the entire application:
-
+1. Install dependencies:
 ```bash
-mvn clean install
+npm install
 ```
 
-This will:
-1. Install Node.js and NPM (using frontend-maven-plugin)
-2. Install NPM dependencies
-3. Build the React application
-4. Package everything into a Spring Boot JAR
-
-## Running the Application
-
-After building, you can run the application using:
-
-```bash
-mvn spring-boot:run
-```
-
-Or run the JAR directly:
-
-```bash
-java -jar target/patterns-solution-client-0.0.1-SNAPSHOT.jar
-```
-
-The application will be available at:
-- http://localhost:3000
-
-## Development Mode
-
-For development, you can:
-
-1. Run the Spring Boot application:
-```bash
-mvn spring-boot:run
-```
-
-2. In a separate terminal, run the React development server:
+2. Start the development server:
 ```bash
 npm start
 ```
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-This will give you hot-reloading for the React frontend while still proxying API requests to the backend service.
+## Available Scripts
 
-## Project Structure
+### `npm start`
 
-- `/src/main/java` - Spring Boot application code
-- `/src/main/resources` - Spring Boot configuration
-- `/src` - React application code
-- `/public` - Static web resources
-- `/build` - Built React application (generated)
+Runs the app in the development mode with the OpenSSL legacy provider.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Configuration
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- `application.properties` - Spring Boot configuration
-- `package.json` - React/NPM configuration
-- `pom.xml` - Maven configuration
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+## Features
+
+- Interactive pattern browsing and visualization
+- User-friendly form for pattern creation and management
+- Comprehensive tag management system
+- Responsive Material-UI design
+- Type-safe development with TypeScript
+
+## Tech Stack
+
+- React 18.2.0
+- TypeScript
+- Material-UI (MUI)
+- Node.js v23.7.0
+
+## Development Notes
+
+- The application uses TypeScript for type safety
+- Material-UI components for consistent design
+- Comprehensive form validation
+- CORS enabled for backend communication
+
+## API Integration
+
+The client communicates with the backend service running on `http://localhost:8080/api/v1` with the following endpoints:
+- `GET /patterns`: Retrieve all patterns
+- `POST /patterns`: Create a new pattern
+- `GET /patterns/{id}`: Get a specific pattern
+- `PUT /patterns/{id}`: Update a pattern
+- `DELETE /patterns/{id}`: Delete a pattern
+
+## Troubleshooting
+
+If you encounter OpenSSL-related issues:
+1. Make sure you're using the `--openssl-legacy-provider` flag during installation
+2. Use Node.js v23.7.0 or higher
+3. Clear npm cache if needed: `npm cache clean --force`
