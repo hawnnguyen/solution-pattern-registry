@@ -4,7 +4,7 @@ A modern React-based web application for managing and showcasing enterprise solu
 
 ## Prerequisites
 
-- Node.js v23.7.0 or higher
+- Node.js v22.13.0 or higher
 - npm (comes with Node.js)
 
 ## Installation
@@ -24,7 +24,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ### `npm start`
 
-Runs the app in the development mode with the OpenSSL legacy provider.\
+Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
@@ -56,7 +56,7 @@ Your app is ready to be deployed!
 - React 18.2.0
 - TypeScript
 - Material-UI (MUI)
-- Node.js v23.7.0
+- Node.js v22.13.0
 
 ## Development Notes
 
@@ -76,7 +76,7 @@ The client communicates with the backend service running on `http://localhost:80
 
 ## Troubleshooting
 
-If you encounter OpenSSL-related issues:
-1. Make sure you're using the `--openssl-legacy-provider` flag during installation
-2. Use Node.js v23.7.0 or higher
+If you encounter issues:
+1. Make sure you're using Node.js v22.13.0 or higher
+2. Check that all dependencies are installed correctly
 3. Clear npm cache if needed: `npm cache clean --force`
