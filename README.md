@@ -15,9 +15,18 @@ A modern React-based web application that provides:
 
 **Tech Stack:**
 - React 18.2.0
-- TypeScript
-- Material-UI (MUI)
-- Node.js v23.7.0
+- TypeScript 5.3.3
+- Material-UI (MUI) 5.15.10
+- Node.js v22.13.0
+- React Router DOM 6.22.2
+- Axios 1.6.7
+
+**Key Features:**
+- Modern and responsive UI with Material-UI components
+- Type-safe development environment
+- Efficient state management
+- RESTful API integration
+- Comprehensive testing suite with Jest and React Testing Library
 
 ### 2. Backend Service (patterns-solution-service)
 
